@@ -1,0 +1,775 @@
+/* MARU CORP — Diagnóstico Empresarial (dinámico) */
+
+.page-diagnostico {
+  --diag-gold: #e2ae39;
+  --diag-blue: #83a1d4;
+  --diag-navy: #343d5f;
+  --diag-sky: #a9c4d6;
+}
+
+.page-diagnostico .page-jump-inner {
+  border: 1px solid rgba(131, 161, 212, 0.28);
+  box-shadow: 0 12px 28px rgba(37, 43, 66, 0.08);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(238, 244, 250, 0.95));
+}
+
+.page-diagnostico .page-jump-nav a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(226, 174, 57, 0.55);
+  box-shadow: 0 6px 14px rgba(226, 174, 57, 0.15);
+}
+
+.page-diagnostico .section {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-diagnostico .section--compact {
+  padding: clamp(2.5rem, 5vw, 3.75rem) 0;
+}
+
+.page-diagnostico #que-es {
+  background:
+    radial-gradient(ellipse 48% 42% at 8% 12%, rgba(226, 174, 57, 0.12), transparent 55%),
+    radial-gradient(ellipse 42% 38% at 92% 80%, rgba(131, 161, 212, 0.12), transparent 55%),
+    linear-gradient(180deg, #fff 0%, #f6f9fc 100%);
+}
+
+.page-diagnostico #para-quien,
+.page-diagnostico #que-no-es,
+.page-diagnostico #formulario {
+  background:
+    radial-gradient(ellipse 46% 40% at 90% 10%, rgba(226, 174, 57, 0.1), transparent 55%),
+    radial-gradient(ellipse 40% 36% at 8% 90%, rgba(169, 196, 214, 0.16), transparent 55%),
+    linear-gradient(180deg, #f4f7fb 0%, #eef3f8 100%);
+}
+
+.page-diagnostico #que-revisamos,
+.page-diagnostico #resultado {
+  background:
+    radial-gradient(ellipse 44% 40% at 12% 20%, rgba(131, 161, 212, 0.12), transparent 55%),
+    linear-gradient(180deg, #fff 0%, #f7fafc 100%);
+}
+
+.page-diagnostico .section-header {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.page-diagnostico .services-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 174, 57, 0.35);
+  box-shadow: 0 6px 16px rgba(37, 43, 66, 0.06);
+  color: var(--diag-navy);
+  font-weight: 700;
+}
+
+.page-diagnostico .services-section-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--diag-gold);
+  box-shadow: 0 0 0 3px rgba(226, 174, 57, 0.25);
+}
+
+.page-diagnostico .section-header h2 {
+  color: var(--diag-navy);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.page-diagnostico .section-header p {
+  color: color-mix(in srgb, var(--text-light) 45%, var(--diag-navy));
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.65;
+}
+
+/* Definición: pack destacado */
+.page-diagnostico .diag-define {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.page-diagnostico .pillar-highlight {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1.85rem 1.95rem 1.85rem 2.1rem;
+  border: 1px solid rgba(226, 174, 57, 0.28);
+  border-left: 5px solid var(--diag-gold);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.94)),
+    linear-gradient(90deg, rgba(226, 174, 57, 0.08), transparent 40%);
+  box-shadow:
+    0 16px 36px rgba(37, 43, 66, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: diagHighlightIdle 6s ease-in-out infinite;
+}
+
+.page-diagnostico .pillar-highlight::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226, 174, 57, 0.28), transparent 68%);
+  top: -70px;
+  right: -40px;
+  z-index: 0;
+  pointer-events: none;
+  animation: diagOrbFloat 8s ease-in-out infinite;
+}
+
+.page-diagnostico .pillar-highlight::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--diag-gold);
+  box-shadow: 0 0 0 6px rgba(226, 174, 57, 0.18);
+  left: -6px;
+  top: 1.6rem;
+  z-index: 1;
+}
+
+.page-diagnostico .pillar-highlight p {
+  position: relative;
+  z-index: 1;
+  color: var(--diag-navy);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 500;
+}
+
+.page-diagnostico .pillar-highlight p + p {
+  margin-top: 1rem;
+  color: #4a5578;
+  font-weight: 500;
+}
+
+.page-diagnostico .diag-define-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.page-diagnostico .diag-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.95rem;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 10px 24px rgba(37, 43, 66, 0.12);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+}
+
+.page-diagnostico .diag-pill:hover {
+  transform: translateY(-3px) scale(1.01);
+  filter: brightness(1.05);
+}
+
+.page-diagnostico .diag-pill--gold {
+  background: linear-gradient(145deg, #e8bc4e, #c99920);
+}
+.page-diagnostico .diag-pill--blue {
+  background: linear-gradient(145deg, #96b4df, #5e86c4);
+}
+
+.page-diagnostico .diag-pill__mark {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.55rem;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+@keyframes diagHighlightIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes diagOrbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-14px, 10px) scale(1.06); }
+}
+
+/* Audiencia / límites: packs */
+.page-diagnostico .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  perspective: 1100px;
+}
+
+.page-diagnostico .benefit-card {
+  --bc-accent: var(--diag-gold);
+  --bc-from: #fffdf6;
+  --bc-to: #f8f1de;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  padding: 1.35rem 1.2rem;
+  border-radius: 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--bc-accent) 32%, transparent);
+  background: linear-gradient(155deg, var(--bc-from), var(--bc-to));
+  box-shadow:
+    0 12px 28px rgba(37, 43, 66, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+}
+
+.page-diagnostico .benefit-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 1.05rem 0 0 1.05rem;
+  background: linear-gradient(180deg, var(--bc-accent), color-mix(in srgb, var(--bc-accent) 55%, #000));
+}
+
+.page-diagnostico .benefit-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    240px circle at var(--shine-x, 20%) var(--shine-y, 20%),
+    rgba(255, 255, 255, 0.5),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.page-diagnostico .benefit-card:nth-child(4n + 1) {
+  --bc-accent: var(--diag-gold);
+  --bc-from: #fffdf6;
+  --bc-to: #f3e4b8;
+}
+.page-diagnostico .benefit-card:nth-child(4n + 2) {
+  --bc-accent: var(--diag-blue);
+  --bc-from: #f5f8fd;
+  --bc-to: #d7e4f5;
+}
+.page-diagnostico .benefit-card:nth-child(4n + 3) {
+  --bc-accent: var(--diag-navy);
+  --bc-from: #f3f5f9;
+  --bc-to: #dde3ef;
+}
+.page-diagnostico .benefit-card:nth-child(4n) {
+  --bc-accent: var(--diag-sky);
+  --bc-from: #f5fafc;
+  --bc-to: #d4e8f1;
+}
+
+.page-diagnostico .benefit-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.7rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.85rem;
+  background: color-mix(in srgb, var(--bc-accent) 18%, #fff);
+  border: 1px solid color-mix(in srgb, var(--bc-accent) 40%, transparent);
+  color: color-mix(in srgb, var(--bc-accent) 70%, #000);
+  font-size: 0.85rem;
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--bc-accent) 20%, transparent);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page-diagnostico .benefit-card h3 {
+  position: relative;
+  z-index: 1;
+  color: var(--diag-navy);
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 0.45rem;
+}
+
+.page-diagnostico .benefit-card p {
+  position: relative;
+  z-index: 1;
+  color: #4a5578;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.page-diagnostico .benefit-card:hover,
+.page-diagnostico .benefit-card.is-tilting {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 34px rgba(37, 43, 66, 0.12);
+  border-color: color-mix(in srgb, var(--bc-accent) 55%, transparent);
+}
+
+.page-diagnostico .benefit-card:hover::after,
+.page-diagnostico .benefit-card.is-tilting::after {
+  opacity: 1;
+}
+
+.page-diagnostico .benefit-card:hover .benefit-icon {
+  transform: scale(1.08) rotate(-6deg);
+}
+
+.page-diagnostico #que-no-es .benefit-card--ok {
+  --bc-accent: var(--diag-gold);
+  --bc-from: #fff8e4;
+  --bc-to: #f0d88a;
+}
+
+.page-diagnostico #que-no-es .benefit-card--ok h3,
+.page-diagnostico #que-no-es .benefit-card--ok p {
+  color: var(--diag-navy);
+}
+
+/* Qué revisamos: checklist animada */
+.page-diagnostico .diag-check-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 820px;
+  display: grid;
+  gap: 0.7rem;
+  perspective: 1100px;
+}
+
+.page-diagnostico .diag-check-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.95rem;
+  background: linear-gradient(145deg, #fff, #f5f8fc);
+  border: 1px solid rgba(52, 61, 95, 0.1);
+  box-shadow: 0 10px 24px rgba(37, 43, 66, 0.07);
+  color: var(--diag-navy);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+}
+
+.page-diagnostico .diag-check-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.55rem;
+  background: linear-gradient(145deg, #e8bc4e, #c99920);
+  box-shadow: 0 4px 12px rgba(201, 153, 32, 0.28);
+  background-image:
+    linear-gradient(145deg, #e8bc4e, #c99920),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+  background-size: cover, 0.95rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-diagnostico .diag-check-list li:nth-child(3n + 2)::before {
+  background-image:
+    linear-gradient(145deg, #96b4df, #5e86c4),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+}
+
+.page-diagnostico .diag-check-list li:nth-child(3n)::before {
+  background-image:
+    linear-gradient(145deg, #4a557a, #2c3452),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+}
+
+.page-diagnostico .diag-check-list li:hover,
+.page-diagnostico .diag-check-list li.is-tilting {
+  transform: translateY(-3px) scale(1.005);
+  border-color: rgba(226, 174, 57, 0.4);
+  box-shadow: 0 14px 28px rgba(37, 43, 66, 0.1);
+}
+
+/* Resultado CTA */
+.page-diagnostico #resultado .page-hero-actions {
+  gap: 0.85rem;
+}
+
+.page-diagnostico #resultado .btn-gold {
+  box-shadow: 0 8px 24px rgba(226, 174, 57, 0.35);
+}
+
+.page-diagnostico .contact-form-wrap {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(131, 161, 212, 0.35);
+  box-shadow:
+    0 18px 42px rgba(37, 43, 66, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: linear-gradient(165deg, #ffffff 0%, #f4f8fc 100%);
+  padding: 0;
+  overflow: hidden;
+}
+
+.page-diagnostico .diag-form-shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.25rem;
+  max-width: 980px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.page-diagnostico .diag-form-aside {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
+}
+
+.page-diagnostico .diag-form-aside__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border-radius: 0.95rem;
+  background: linear-gradient(145deg, #fff, #eef4fa);
+  border: 1px solid rgba(131, 161, 212, 0.3);
+  box-shadow: 0 10px 22px rgba(37, 43, 66, 0.07);
+  color: #343d5f;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.page-diagnostico .diag-form-aside__item:nth-child(1) {
+  background: linear-gradient(145deg, #fff8e8, #f3e0a8);
+  border-color: rgba(226, 174, 57, 0.45);
+}
+.page-diagnostico .diag-form-aside__item:nth-child(2) {
+  background: linear-gradient(145deg, #eaf1fa, #d2e0f3);
+  border-color: rgba(131, 161, 212, 0.45);
+}
+.page-diagnostico .diag-form-aside__item:nth-child(3) {
+  background: linear-gradient(145deg, #eef1f6, #d5dce8);
+  border-color: rgba(52, 61, 95, 0.25);
+}
+
+.page-diagnostico .diag-form-aside__item strong {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #343d5f;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.page-diagnostico .diag-form {
+  padding: 1.35rem 1.4rem 1.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.page-diagnostico .diag-form::before {
+  display: none !important;
+}
+
+.page-diagnostico .diag-form-block {
+  margin: 0 0 1.15rem;
+  padding: 1.15rem 1.15rem 1.2rem;
+  border: 1px solid rgba(131, 161, 212, 0.28);
+  border-radius: 1rem;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 252, 0.95));
+  box-shadow: 0 8px 20px rgba(37, 43, 66, 0.05);
+}
+
+.page-diagnostico .diag-form-block--last {
+  margin-bottom: 0;
+  border-color: rgba(226, 174, 57, 0.35);
+  background: linear-gradient(155deg, #fffdf6, #f8f1de);
+}
+
+.page-diagnostico .diag-form-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  float: none;
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(226, 174, 57, 0.35);
+  color: #343d5f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 14px rgba(37, 43, 66, 0.06);
+}
+
+.page-diagnostico .diag-form-legend span {
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e8bc4e, #c99920);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.page-diagnostico .diag-form .form-row {
+  margin-bottom: 0.95rem;
+}
+
+.page-diagnostico .diag-form .form-group {
+  margin-bottom: 0.95rem;
+}
+
+.page-diagnostico .diag-form .form-row .form-group {
+  margin-bottom: 0;
+}
+
+.page-diagnostico .diag-form .form-group label {
+  color: #343d5f !important;
+  font-weight: 700;
+  font-size: 0.84rem;
+  margin-bottom: 0.4rem;
+}
+
+.page-diagnostico .diag-form .form-group input,
+.page-diagnostico .diag-form .form-group select,
+.page-diagnostico .diag-form .form-group textarea {
+  background: #fff !important;
+  color: #343d5f !important;
+  border: 1.5px solid rgba(52, 61, 95, 0.22) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.9rem 1rem !important;
+  min-height: 3rem;
+  box-shadow: inset 0 1px 2px rgba(37, 43, 66, 0.04);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.page-diagnostico .diag-form .form-group textarea {
+  min-height: 7.5rem;
+}
+
+.page-diagnostico .diag-form .form-group input::placeholder,
+.page-diagnostico .diag-form .form-group textarea::placeholder {
+  color: #8a94ad;
+  opacity: 1;
+}
+
+.page-diagnostico .diag-form .form-group input:hover,
+.page-diagnostico .diag-form .form-group select:hover,
+.page-diagnostico .diag-form .form-group textarea:hover {
+  border-color: rgba(131, 161, 212, 0.7) !important;
+}
+
+.page-diagnostico .diag-form .form-group input:focus,
+.page-diagnostico .diag-form .form-group select:focus,
+.page-diagnostico .diag-form .form-group textarea:focus {
+  border-color: #e2ae39 !important;
+  box-shadow:
+    0 0 0 4px rgba(226, 174, 57, 0.18),
+    0 8px 18px rgba(37, 43, 66, 0.08) !important;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.page-diagnostico .diag-form .form-strategic {
+  margin: 0.35rem 0 0;
+  padding: 1rem 1.05rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(145deg, rgba(131, 161, 212, 0.16), rgba(169, 196, 214, 0.2));
+  border: 1px solid rgba(131, 161, 212, 0.4);
+}
+
+.page-diagnostico .diag-form .form-strategic label {
+  color: #343d5f !important;
+}
+
+.page-diagnostico .diag-form-submit {
+  margin-top: 0.35rem;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(226, 174, 57, 0.38);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.page-diagnostico .diag-form-submit:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 14px 30px rgba(226, 174, 57, 0.45);
+}
+
+.page-diagnostico .diag-form .form-microcopy {
+  color: #4a5578 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .page-diagnostico .diag-form-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .page-diagnostico .diag-form-aside {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .page-diagnostico .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-diagnostico .diag-form-aside {
+    grid-template-columns: 1fr;
+  }
+
+  .page-diagnostico .diag-form .form-row--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-diagnostico .diag-form {
+    padding: 1rem 0.95rem 1.15rem !important;
+  }
+
+  .page-diagnostico .diag-form-block {
+    padding: 1rem;
+  }
+
+  .page-diagnostico .diag-form-submit,
+  .page-diagnostico .diag-form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-diagnostico .pillar-highlight {
+    padding: 1.15rem 1rem 1.15rem 1.2rem;
+  }
+
+  .page-diagnostico .pillar-highlight::before {
+    display: none;
+  }
+}
+
+/* Stagger */
+.page-diagnostico .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-diagnostico .reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.page-diagnostico .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.04s; }
+.page-diagnostico .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.page-diagnostico .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.page-diagnostico .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.22s; }
+.page-diagnostico .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.28s; }
+.page-diagnostico .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.34s; }
+
+.page-diagnostico .diag-check-list.reveal-stagger > li {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.page-diagnostico .diag-check-list.reveal-stagger.visible > li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .page-diagnostico .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-diagnostico .diag-form-shell {
+    grid-template-columns: minmax(180px, 200px) 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-diagnostico .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .page-diagnostico .benefits-grid,
+  .page-diagnostico .diag-define-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .page-diagnostico #resultado .page-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-diagnostico #resultado .page-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-diagnostico .pillar-highlight,
+  .page-diagnostico .pillar-highlight::before {
+    animation: none !important;
+  }
+
+  .page-diagnostico .reveal-stagger > *,
+  .page-diagnostico .diag-check-list.reveal-stagger > li,
+  .page-diagnostico .benefit-card,
+  .page-diagnostico .diag-pill {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

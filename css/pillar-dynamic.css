@@ -1,0 +1,988 @@
+/* MARU CORP — Pilares: color, profundidad y movimiento suave */
+
+.page-supervision,
+.page-prevencion,
+.page-operacion {
+  --pillar-gold: #e2ae39;
+  --pillar-gold-deep: #c99418;
+  --pillar-blue: #83a1d4;
+  --pillar-blue-deep: #5e86c4;
+  --pillar-navy: #343d5f;
+  --pillar-navy-deep: #252b42;
+  --pillar-sky: #a9c4d6;
+  --pillar-sky-deep: #7fa8bf;
+}
+
+/* Ambientes de sección */
+.page-supervision .pillar-section,
+.page-prevencion .pillar-section,
+.page-operacion .pillar-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-supervision .pillar-section--light,
+.page-prevencion .pillar-section--light,
+.page-operacion .pillar-section--light {
+  background:
+    radial-gradient(ellipse 50% 45% at 8% 10%, rgba(226, 174, 57, 0.12), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 92% 20%, rgba(131, 161, 212, 0.14), transparent 55%),
+    linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+}
+
+.page-supervision .pillar-section:not(.pillar-section--dark):not(.pillar-section--light),
+.page-prevencion .pillar-section:not(.pillar-section--dark):not(.pillar-section--light),
+.page-operacion .pillar-section:not(.pillar-section--dark):not(.pillar-section--light) {
+  background:
+    radial-gradient(ellipse 42% 38% at 90% 8%, rgba(226, 174, 57, 0.1), transparent 58%),
+    radial-gradient(ellipse 40% 36% at 6% 85%, rgba(169, 196, 214, 0.16), transparent 55%),
+    linear-gradient(180deg, #fff 0%, #f4f7fb 100%);
+}
+
+.page-supervision .pillar-section--dark,
+.page-prevencion .pillar-section--dark,
+.page-operacion .pillar-section--dark {
+  background:
+    radial-gradient(ellipse 48% 42% at 85% 12%, rgba(226, 174, 57, 0.16), transparent 55%),
+    radial-gradient(ellipse 42% 40% at 10% 88%, rgba(131, 161, 212, 0.14), transparent 55%),
+    linear-gradient(145deg, #252b42 0%, var(--pillar-navy) 48%, #2f3858 100%);
+}
+
+/* Intro strip más viva */
+.page-supervision .pillar-intro,
+.page-prevencion .pillar-intro,
+.page-operacion .pillar-intro {
+  background: linear-gradient(90deg, rgba(131, 161, 212, 0.14), rgba(226, 174, 57, 0.1), rgba(169, 196, 214, 0.12));
+  border-bottom: 1px solid rgba(131, 161, 212, 0.25);
+}
+
+.page-supervision .pillar-intro-inner,
+.page-prevencion .pillar-intro-inner,
+.page-operacion .pillar-intro-inner {
+  color: color-mix(in srgb, var(--text-light) 55%, var(--pillar-navy));
+  font-weight: 500;
+}
+
+/* Label / jump con más presencia */
+.page-supervision .pillar-label,
+.page-prevencion .pillar-label,
+.page-operacion .pillar-label {
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 174, 57, 0.35);
+  box-shadow: 0 6px 16px rgba(37, 43, 66, 0.06);
+  color: var(--pillar-navy);
+}
+
+.page-supervision .pillar-section--dark .pillar-label,
+.page-prevencion .pillar-section--dark .pillar-label,
+.page-operacion .pillar-section--dark .pillar-label,
+.page-supervision .pillar-cta .pillar-label,
+.page-prevencion .pillar-cta .pillar-label,
+.page-operacion .pillar-cta .pillar-label {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(226, 174, 57, 0.4);
+  color: var(--gold-light);
+  box-shadow: none;
+}
+
+.page-supervision .pillar-label::before,
+.page-prevencion .pillar-label::before,
+.page-operacion .pillar-label::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pillar-gold);
+  box-shadow: 0 0 0 3px rgba(226, 174, 57, 0.25);
+}
+
+.page-supervision .page-jump,
+.page-prevencion .page-jump,
+.page-operacion .page-jump {
+  backdrop-filter: blur(10px);
+}
+
+.page-supervision .page-jump-inner,
+.page-prevencion .page-jump-inner,
+.page-operacion .page-jump-inner {
+  border: 1px solid rgba(131, 161, 212, 0.28);
+  box-shadow:
+    0 12px 28px rgba(37, 43, 66, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(238, 244, 250, 0.95));
+}
+
+.page-supervision .page-jump-nav a:hover,
+.page-prevencion .page-jump-nav a:hover,
+.page-operacion .page-jump-nav a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(226, 174, 57, 0.55);
+  box-shadow: 0 6px 14px rgba(226, 174, 57, 0.15);
+}
+
+/* Highlight pack */
+.page-supervision .pillar-highlight,
+.page-prevencion .pillar-highlight,
+.page-operacion .pillar-highlight {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  max-width: 920px;
+  padding: 1.85rem 1.95rem 1.85rem 2.1rem;
+  border: 1px solid rgba(226, 174, 57, 0.28);
+  border-left: 5px solid var(--pillar-gold);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.94)),
+    linear-gradient(90deg, rgba(226, 174, 57, 0.08), transparent 40%);
+  box-shadow:
+    0 16px 36px rgba(37, 43, 66, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: pillarHighlightIdle 6s ease-in-out infinite;
+}
+
+.page-supervision .pillar-highlight::before,
+.page-prevencion .pillar-highlight::before,
+.page-operacion .pillar-highlight::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226, 174, 57, 0.28), transparent 68%);
+  top: -70px;
+  right: -40px;
+  z-index: 0;
+  pointer-events: none;
+  animation: pillarOrbFloat 8s ease-in-out infinite;
+}
+
+.page-supervision .pillar-highlight::after,
+.page-prevencion .pillar-highlight::after,
+.page-operacion .pillar-highlight::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pillar-gold);
+  box-shadow: 0 0 0 6px rgba(226, 174, 57, 0.18);
+  left: -6px;
+  top: 1.6rem;
+  z-index: 1;
+}
+
+.page-supervision .pillar-highlight p,
+.page-prevencion .pillar-highlight p,
+.page-operacion .pillar-highlight p {
+  position: relative;
+  z-index: 1;
+  color: var(--pillar-navy);
+  font-size: 1.04rem;
+  font-weight: 550;
+}
+
+.page-supervision .pillar-highlight p + p,
+.page-prevencion .pillar-highlight p + p,
+.page-operacion .pillar-highlight p + p {
+  color: color-mix(in srgb, var(--text-light) 50%, var(--pillar-navy));
+  font-weight: 500;
+}
+
+@keyframes pillarHighlightIdle {
+  0%, 100% { transform: translateY(0); box-shadow: 0 16px 36px rgba(37, 43, 66, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+  50% { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(37, 43, 66, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+}
+
+@keyframes pillarOrbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+  50% { transform: translate(-18px, 12px) scale(1.08); opacity: 1; }
+}
+
+/* Cards coloridas (packs) */
+.page-supervision .pillar-cards,
+.page-prevencion .pillar-cards,
+.page-operacion .pillar-cards {
+  perspective: 1200px;
+}
+
+.page-supervision .pillar-card,
+.page-prevencion .pillar-card,
+.page-operacion .pillar-card {
+  --card-accent: var(--pillar-gold);
+  --card-from: #fff;
+  --card-to: #f7fafc;
+  --card-icon-bg: rgba(226, 174, 57, 0.14);
+  --card-icon-color: var(--pillar-gold-deep);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  background: linear-gradient(155deg, var(--card-from), var(--card-to));
+  border: 1px solid color-mix(in srgb, var(--card-accent) 28%, transparent);
+  border-radius: 1.05rem;
+  box-shadow:
+    0 12px 28px rgba(37, 43, 66, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.page-supervision .pillar-card::before,
+.page-prevencion .pillar-card::before,
+.page-operacion .pillar-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    260px circle at var(--shine-x, 18%) var(--shine-y, 20%),
+    rgba(255, 255, 255, 0.55),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.page-supervision .pillar-card::after,
+.page-prevencion .pillar-card::after,
+.page-operacion .pillar-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 1.05rem 0 0 1.05rem;
+  background: linear-gradient(180deg, var(--card-accent), color-mix(in srgb, var(--card-accent) 60%, #000));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.page-supervision .pillar-card > *,
+.page-prevencion .pillar-card > *,
+.page-operacion .pillar-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-supervision .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-supervision .pillar-cards--2 > .pillar-card:nth-child(4n + 1),
+.page-supervision .pillar-cards--4 > .pillar-card:nth-child(4n + 1),
+.page-prevencion .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-prevencion .pillar-cards--2 > .pillar-card:nth-child(4n + 1),
+.page-prevencion .pillar-cards--4 > .pillar-card:nth-child(4n + 1),
+.page-operacion .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-operacion .pillar-cards--2 > .pillar-card:nth-child(4n + 1),
+.page-operacion .pillar-cards--4 > .pillar-card:nth-child(4n + 1) {
+  --card-accent: var(--pillar-gold);
+  --card-from: #fffdf6;
+  --card-to: #f8f1de;
+  --card-icon-bg: rgba(226, 174, 57, 0.18);
+  --card-icon-color: #b88714;
+}
+
+.page-supervision .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-supervision .pillar-cards--2 > .pillar-card:nth-child(4n + 2),
+.page-supervision .pillar-cards--4 > .pillar-card:nth-child(4n + 2),
+.page-prevencion .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-prevencion .pillar-cards--2 > .pillar-card:nth-child(4n + 2),
+.page-prevencion .pillar-cards--4 > .pillar-card:nth-child(4n + 2),
+.page-operacion .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-operacion .pillar-cards--2 > .pillar-card:nth-child(4n + 2),
+.page-operacion .pillar-cards--4 > .pillar-card:nth-child(4n + 2) {
+  --card-accent: var(--pillar-blue);
+  --card-from: #f5f8fd;
+  --card-to: #e4edf8;
+  --card-icon-bg: rgba(131, 161, 212, 0.22);
+  --card-icon-color: #3f6eb0;
+}
+
+.page-supervision .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-supervision .pillar-cards--2 > .pillar-card:nth-child(4n + 3),
+.page-supervision .pillar-cards--4 > .pillar-card:nth-child(4n + 3),
+.page-prevencion .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-prevencion .pillar-cards--2 > .pillar-card:nth-child(4n + 3),
+.page-prevencion .pillar-cards--4 > .pillar-card:nth-child(4n + 3),
+.page-operacion .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-operacion .pillar-cards--2 > .pillar-card:nth-child(4n + 3),
+.page-operacion .pillar-cards--4 > .pillar-card:nth-child(4n + 3) {
+  --card-accent: var(--pillar-navy);
+  --card-from: #f3f5f9;
+  --card-to: #dde3ef;
+  --card-icon-bg: rgba(52, 61, 95, 0.12);
+  --card-icon-color: var(--pillar-navy);
+}
+
+.page-supervision .pillar-cards--2 > .pillar-card:nth-child(4n),
+.page-supervision .pillar-cards--4 > .pillar-card:nth-child(4n),
+.page-prevencion .pillar-cards--2 > .pillar-card:nth-child(4n),
+.page-prevencion .pillar-cards--4 > .pillar-card:nth-child(4n),
+.page-operacion .pillar-cards--2 > .pillar-card:nth-child(4n),
+.page-operacion .pillar-cards--4 > .pillar-card:nth-child(4n) {
+  --card-accent: var(--pillar-sky);
+  --card-from: #f5fafc;
+  --card-to: #ddeef5;
+  --card-icon-bg: rgba(169, 196, 214, 0.28);
+  --card-icon-color: #4d7a94;
+}
+
+.page-supervision .pillar-card .icon-line,
+.page-prevencion .pillar-card .icon-line,
+.page-operacion .pillar-card .icon-line {
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 0.75rem;
+  background: var(--card-icon-bg);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 35%, transparent);
+  color: var(--card-icon-color);
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--card-accent) 22%, transparent);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.page-supervision .pillar-card h3,
+.page-prevencion .pillar-card h3,
+.page-operacion .pillar-card h3 {
+  color: var(--pillar-navy);
+  font-weight: 800;
+}
+
+.page-supervision .pillar-card p,
+.page-prevencion .pillar-card p,
+.page-operacion .pillar-card p {
+  color: color-mix(in srgb, var(--text-light) 45%, var(--pillar-navy));
+  font-weight: 500;
+}
+
+.page-supervision .pillar-card:hover,
+.page-supervision .pillar-card.is-tilting,
+.page-prevencion .pillar-card:hover,
+.page-prevencion .pillar-card.is-tilting,
+.page-operacion .pillar-card:hover,
+.page-operacion .pillar-card.is-tilting {
+  border-color: color-mix(in srgb, var(--card-accent) 55%, transparent);
+  box-shadow:
+    0 16px 34px rgba(37, 43, 66, 0.12),
+    0 0 0 1px color-mix(in srgb, var(--card-accent) 18%, transparent);
+  filter: brightness(1.02);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.page-supervision .pillar-card:hover::before,
+.page-supervision .pillar-card.is-tilting::before,
+.page-prevencion .pillar-card:hover::before,
+.page-prevencion .pillar-card.is-tilting::before,
+.page-operacion .pillar-card:hover::before,
+.page-operacion .pillar-card.is-tilting::before {
+  opacity: 1;
+}
+
+.page-supervision .pillar-card:hover .icon-line,
+.page-prevencion .pillar-card:hover .icon-line,
+.page-operacion .pillar-card:hover .icon-line {
+  transform: scale(1.08) rotate(-6deg);
+}
+
+/* Cards en fondo oscuro: fondo claro sólido + texto navy (siempre legible) */
+.page-supervision .pillar-section--dark .pillar-card,
+.page-prevencion .pillar-section--dark .pillar-card,
+.page-operacion .pillar-section--dark .pillar-card {
+  background: linear-gradient(155deg, var(--card-from, #fffdf8), var(--card-to, #f3e8c4)) !important;
+  border-color: color-mix(in srgb, var(--card-accent, var(--pillar-gold)) 40%, transparent) !important;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: none !important;
+  color: var(--pillar-navy);
+}
+
+.page-supervision .pillar-section--dark .pillar-card h3,
+.page-prevencion .pillar-section--dark .pillar-card h3,
+.page-operacion .pillar-section--dark .pillar-card h3 {
+  color: #343d5f !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-card p,
+.page-prevencion .pillar-section--dark .pillar-card p,
+.page-operacion .pillar-section--dark .pillar-card p {
+  color: #4a5578 !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-supervision .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 1),
+.page-prevencion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-prevencion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 1),
+.page-operacion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 1),
+.page-operacion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 1) {
+  --card-accent: var(--pillar-gold);
+  --card-from: #fffdfa;
+  --card-to: #f4e5b4;
+  --card-icon-bg: rgba(226, 174, 57, 0.22);
+  --card-icon-color: #9a7310;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-supervision .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 2),
+.page-prevencion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-prevencion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 2),
+.page-operacion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n + 2),
+.page-operacion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 2) {
+  --card-accent: var(--pillar-blue);
+  --card-from: #f8fbff;
+  --card-to: #d5e4f6;
+  --card-icon-bg: rgba(131, 161, 212, 0.28);
+  --card-icon-color: #355f9c;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-supervision .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 3),
+.page-prevencion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-prevencion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 3),
+.page-operacion .pillar-section--dark .pillar-cards--3 > .pillar-card:nth-child(3n),
+.page-operacion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n + 3) {
+  --card-accent: var(--pillar-navy);
+  --card-from: #f7f9fc;
+  --card-to: #d3dce9;
+  --card-icon-bg: rgba(52, 61, 95, 0.14);
+  --card-icon-color: #343d5f;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n),
+.page-prevencion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n),
+.page-operacion .pillar-section--dark .pillar-cards--2 > .pillar-card:nth-child(4n) {
+  --card-accent: var(--pillar-sky);
+  --card-from: #f7fbfd;
+  --card-to: #d1e7f0;
+  --card-icon-bg: rgba(169, 196, 214, 0.32);
+  --card-icon-color: #3d6780;
+}
+
+.page-supervision .pillar-section--dark .pillar-card .icon-line,
+.page-prevencion .pillar-section--dark .pillar-card .icon-line,
+.page-operacion .pillar-section--dark .pillar-card .icon-line {
+  color: var(--card-icon-color) !important;
+  background: var(--card-icon-bg) !important;
+  border-color: color-mix(in srgb, var(--card-accent) 40%, transparent) !important;
+}
+
+/* Señales / indicadores (signal-list y risk-list) */
+.page-supervision .signal-list,
+.page-prevencion .signal-list,
+.page-prevencion .risk-list,
+.page-operacion .signal-list {
+  perspective: 1100px;
+}
+
+.page-supervision .signal-item,
+.page-prevencion .signal-item,
+.page-prevencion .risk-item,
+.page-operacion .signal-item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  align-items: center;
+  border: 1px solid rgba(52, 61, 95, 0.1);
+  border-radius: 0.95rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(246, 249, 252, 0.95));
+  box-shadow:
+    0 10px 24px rgba(37, 43, 66, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  color: var(--pillar-navy);
+  font-weight: 600;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+}
+
+.page-supervision .signal-item::before,
+.page-prevencion .signal-item::before,
+.page-prevencion .risk-item::before,
+.page-operacion .signal-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    240px circle at var(--shine-x, 12%) var(--shine-y, 40%),
+    rgba(255, 255, 255, 0.5),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.page-supervision .signal-item::after,
+.page-prevencion .signal-item::after,
+.page-prevencion .risk-item::after,
+.page-operacion .signal-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 0.95rem 0 0 0.95rem;
+  background: linear-gradient(180deg, var(--sig-accent, var(--pillar-gold)), color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 55%, #000));
+  opacity: 0;
+  transform: scaleY(0.4);
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-supervision .signal-item > *,
+.page-prevencion .signal-item > *,
+.page-prevencion .risk-item > *,
+.page-operacion .signal-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-supervision .signal-item:nth-child(4n + 1),
+.page-prevencion .signal-item:nth-child(4n + 1),
+.page-prevencion .risk-item:nth-child(4n + 1),
+.page-operacion .signal-item:nth-child(4n + 1) { --sig-accent: var(--pillar-gold); }
+.page-supervision .signal-item:nth-child(4n + 2),
+.page-prevencion .signal-item:nth-child(4n + 2),
+.page-prevencion .risk-item:nth-child(4n + 2),
+.page-operacion .signal-item:nth-child(4n + 2) { --sig-accent: var(--pillar-blue); }
+.page-supervision .signal-item:nth-child(4n + 3),
+.page-prevencion .signal-item:nth-child(4n + 3),
+.page-prevencion .risk-item:nth-child(4n + 3),
+.page-operacion .signal-item:nth-child(4n + 3) { --sig-accent: var(--pillar-navy); }
+.page-supervision .signal-item:nth-child(4n),
+.page-prevencion .signal-item:nth-child(4n),
+.page-prevencion .risk-item:nth-child(4n),
+.page-operacion .signal-item:nth-child(4n) { --sig-accent: var(--pillar-sky-deep); }
+
+.page-supervision .signal-item__mark,
+.page-prevencion .signal-item__mark,
+.page-prevencion .risk-item__mark,
+.page-operacion .signal-item__mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 18%, #fff);
+  border: 1px solid color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 40%, transparent);
+  color: color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 75%, #000);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 22%, transparent);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page-supervision .signal-item:hover,
+.page-supervision .signal-item.is-tilting,
+.page-prevencion .signal-item:hover,
+.page-prevencion .signal-item.is-tilting,
+.page-prevencion .risk-item:hover,
+.page-prevencion .risk-item.is-tilting,
+.page-operacion .signal-item:hover,
+.page-operacion .signal-item.is-tilting {
+  border-color: color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 42%, transparent);
+  box-shadow:
+    0 14px 28px rgba(37, 43, 66, 0.1),
+    0 0 0 1px color-mix(in srgb, var(--sig-accent, var(--pillar-gold)) 12%, transparent);
+  transform: translateY(-3px) scale(1.005);
+}
+
+.page-supervision .signal-item:hover::before,
+.page-supervision .signal-item.is-tilting::before,
+.page-prevencion .signal-item:hover::before,
+.page-prevencion .signal-item.is-tilting::before,
+.page-prevencion .risk-item:hover::before,
+.page-prevencion .risk-item.is-tilting::before,
+.page-operacion .signal-item:hover::before,
+.page-operacion .signal-item.is-tilting::before {
+  opacity: 1;
+}
+
+.page-supervision .signal-item:hover::after,
+.page-supervision .signal-item.is-tilting::after,
+.page-prevencion .signal-item:hover::after,
+.page-prevencion .signal-item.is-tilting::after,
+.page-prevencion .risk-item:hover::after,
+.page-prevencion .risk-item.is-tilting::after,
+.page-operacion .signal-item:hover::after,
+.page-operacion .signal-item.is-tilting::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.page-supervision .signal-item:hover .signal-item__mark,
+.page-prevencion .signal-item:hover .signal-item__mark,
+.page-prevencion .risk-item:hover .risk-item__mark,
+.page-operacion .signal-item:hover .signal-item__mark {
+  transform: scale(1.08) rotate(-5deg);
+}
+
+/* Area tags */
+.page-supervision .area-tag,
+.page-prevencion .area-tag,
+.page-operacion .area-tag {
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.page-supervision .area-tag:nth-child(4n + 1),
+.page-prevencion .area-tag:nth-child(4n + 1),
+.page-operacion .area-tag:nth-child(4n + 1) {
+  background: linear-gradient(135deg, #e8bc4e, #c99920);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(201, 153, 32, 0.28);
+}
+.page-supervision .area-tag:nth-child(4n + 2),
+.page-prevencion .area-tag:nth-child(4n + 2),
+.page-operacion .area-tag:nth-child(4n + 2) {
+  background: linear-gradient(135deg, #96b4df, #5e86c4);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(94, 134, 196, 0.28);
+}
+.page-supervision .area-tag:nth-child(4n + 3),
+.page-prevencion .area-tag:nth-child(4n + 3),
+.page-operacion .area-tag:nth-child(4n + 3) {
+  background: linear-gradient(135deg, #4a557a, #2c3452);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(44, 52, 82, 0.28);
+}
+.page-supervision .area-tag:nth-child(4n),
+.page-prevencion .area-tag:nth-child(4n),
+.page-operacion .area-tag:nth-child(4n) {
+  background: linear-gradient(135deg, #b7d0df, #7fa8bf);
+  color: #1f3344;
+  box-shadow: 0 8px 18px rgba(127, 168, 191, 0.28);
+}
+
+.page-supervision .area-tag svg,
+.page-prevencion .area-tag svg,
+.page-operacion .area-tag svg {
+  stroke: currentColor;
+}
+
+.page-supervision .area-tag:hover,
+.page-prevencion .area-tag:hover,
+.page-operacion .area-tag:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* Compare packs (prevención) */
+.page-prevencion .compare-grid {
+  gap: 1.25rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.page-prevencion .compare-col {
+  border-radius: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+  transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.page-prevencion .compare-col:hover {
+  transform: translateY(-4px);
+  border-color: rgba(169, 196, 214, 0.4);
+}
+
+.page-prevencion .compare-col--accent {
+  border-color: rgba(226, 174, 57, 0.4);
+  background:
+    linear-gradient(155deg, rgba(226, 174, 57, 0.18), rgba(255, 255, 255, 0.04)),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 16px 34px rgba(226, 174, 57, 0.18);
+}
+
+.page-prevencion .compare-col--accent:hover {
+  border-color: rgba(226, 174, 57, 0.6);
+  transform: translateY(-5px) scale(1.01);
+}
+
+/* Comparativa 05: legibilidad forzada (texto oscuro sobre tarjeta clara) */
+.page-prevencion .pillar-section--dark .compare-col {
+  background: #f7f9fc !important;
+  border: 1px solid rgba(52, 61, 95, 0.12) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col--accent {
+  background:
+    linear-gradient(145deg, rgba(226, 174, 57, 0.14), #fffdf6) !important;
+  border-color: rgba(226, 174, 57, 0.4) !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col h3 {
+  color: #343d5f !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col--accent h3 {
+  color: #9a7418 !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col li {
+  color: #4a5578 !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col li::before {
+  color: #83a1d4 !important;
+}
+
+.page-prevencion .pillar-section--dark .compare-col--accent li::before {
+  color: #c99920 !important;
+}
+
+/* Steps */
+.page-supervision .pillar-step,
+.page-prevencion .pillar-step,
+.page-operacion .pillar-step {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  border-radius: 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    linear-gradient(180deg, transparent, rgba(226, 174, 57, 0.05));
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s ease;
+}
+
+.page-supervision .pillar-step:nth-child(1),
+.page-prevencion .pillar-step:nth-child(1),
+.page-operacion .pillar-step:nth-child(1) { border-top: 3px solid var(--pillar-gold); }
+.page-supervision .pillar-step:nth-child(2),
+.page-prevencion .pillar-step:nth-child(2),
+.page-operacion .pillar-step:nth-child(2) { border-top: 3px solid var(--pillar-blue); }
+.page-supervision .pillar-step:nth-child(3),
+.page-prevencion .pillar-step:nth-child(3),
+.page-operacion .pillar-step:nth-child(3) { border-top: 3px solid var(--pillar-sky); }
+.page-supervision .pillar-step:nth-child(4),
+.page-prevencion .pillar-step:nth-child(4),
+.page-operacion .pillar-step:nth-child(4) { border-top: 3px solid #f0c86a; }
+
+.page-supervision .pillar-step:hover,
+.page-supervision .pillar-step.is-tilting,
+.page-prevencion .pillar-step:hover,
+.page-prevencion .pillar-step.is-tilting,
+.page-operacion .pillar-step:hover,
+.page-operacion .pillar-step.is-tilting {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(226, 174, 57, 0.4);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* Stagger entrance más vivo */
+.page-supervision .reveal-stagger > *,
+.page-prevencion .reveal-stagger > *,
+.page-operacion .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-supervision .reveal-stagger.visible > *,
+.page-prevencion .reveal-stagger.visible > *,
+.page-operacion .reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.page-supervision .reveal-stagger.visible > *:nth-child(1),
+.page-prevencion .reveal-stagger.visible > *:nth-child(1),
+.page-operacion .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.04s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(2),
+.page-prevencion .reveal-stagger.visible > *:nth-child(2),
+.page-operacion .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(3),
+.page-prevencion .reveal-stagger.visible > *:nth-child(3),
+.page-operacion .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(4),
+.page-prevencion .reveal-stagger.visible > *:nth-child(4),
+.page-operacion .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.22s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(5),
+.page-prevencion .reveal-stagger.visible > *:nth-child(5),
+.page-operacion .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.28s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(6),
+.page-prevencion .reveal-stagger.visible > *:nth-child(6),
+.page-operacion .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.34s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(7),
+.page-prevencion .reveal-stagger.visible > *:nth-child(7),
+.page-operacion .reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.4s; }
+.page-supervision .reveal-stagger.visible > *:nth-child(8),
+.page-prevencion .reveal-stagger.visible > *:nth-child(8),
+.page-operacion .reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.46s; }
+
+/* ── Responsive pilares (layout) ── */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .page-supervision .pillar-cards--3,
+  .page-prevencion .pillar-cards--3,
+  .page-operacion .pillar-cards--3,
+  .page-supervision .pillar-steps,
+  .page-prevencion .pillar-steps,
+  .page-operacion .pillar-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .page-supervision .pillar-cards--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .page-supervision .pillar-cta-actions,
+  .page-prevencion .pillar-cta-actions,
+  .page-operacion .pillar-cta-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 575px) {
+  .page-supervision .pillar-highlight,
+  .page-prevencion .pillar-highlight,
+  .page-operacion .pillar-highlight {
+    padding: 1.15rem 1rem 1.15rem 1.2rem !important;
+  }
+
+  .page-supervision .pillar-highlight::before,
+  .page-prevencion .pillar-highlight::before,
+  .page-operacion .pillar-highlight::before {
+    display: none;
+  }
+
+  .page-supervision .pillar-card,
+  .page-prevencion .pillar-card,
+  .page-operacion .pillar-card {
+    padding: 1.1rem 1rem !important;
+  }
+
+  .page-supervision .pillar-cta-actions,
+  .page-prevencion .pillar-cta-actions,
+  .page-operacion .pillar-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-supervision .pillar-cta-actions .btn,
+  .page-prevencion .pillar-cta-actions .btn,
+  .page-operacion .pillar-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-supervision .signal-list,
+  .page-prevencion .signal-list,
+  .page-operacion .signal-list,
+  .page-supervision .risk-list,
+  .page-prevencion .risk-list,
+  .page-operacion .risk-list {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-supervision .pillar-highlight,
+  .page-prevencion .pillar-highlight,
+  .page-operacion .pillar-highlight,
+  .page-supervision .pillar-highlight::before,
+  .page-prevencion .pillar-highlight::before,
+  .page-operacion .pillar-highlight::before {
+    animation: none !important;
+  }
+
+  .page-supervision .reveal-stagger > *,
+  .page-prevencion .reveal-stagger > *,
+  .page-operacion .reveal-stagger > *,
+  .page-supervision .pillar-card,
+  .page-prevencion .pillar-card,
+  .page-operacion .pillar-card,
+  .page-supervision .signal-item,
+  .page-prevencion .signal-item,
+  .page-prevencion .risk-item,
+  .page-operacion .signal-item,
+  .page-supervision .pillar-step,
+  .page-prevencion .pillar-step,
+  .page-operacion .pillar-step,
+  .page-supervision .area-tag,
+  .page-prevencion .area-tag,
+  .page-operacion .area-tag {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ═══ Contraste forzado en secciones oscuras (última prioridad) ═══ */
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card,
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card,
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card {
+  background: #f5f8fc !important;
+  background-image: none !important;
+  color: #343d5f !important;
+  border: 1px solid rgba(131, 161, 212, 0.35) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28) !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card h3,
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card h3,
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card h3 {
+  color: #343d5f !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card p,
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card p,
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card p {
+  color: #4a5578 !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 1),
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 1),
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 1) {
+  background: #fff8e8 !important;
+  border-color: rgba(226, 174, 57, 0.45) !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 2),
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 2),
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 2) {
+  background: #eaf1fa !important;
+  border-color: rgba(131, 161, 212, 0.5) !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 3),
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 3),
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n + 3) {
+  background: #eef1f6 !important;
+  border-color: rgba(52, 61, 95, 0.28) !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n),
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n),
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card:nth-child(4n) {
+  background: #ebf5f9 !important;
+  border-color: rgba(169, 196, 214, 0.55) !important;
+}
+
+.page-supervision .pillar-section--dark .pillar-cards .pillar-card .icon-line,
+.page-prevencion .pillar-section--dark .pillar-cards .pillar-card .icon-line,
+.page-operacion .pillar-section--dark .pillar-cards .pillar-card .icon-line {
+  color: #343d5f !important;
+  background: rgba(52, 61, 95, 0.08) !important;
+  border-color: rgba(52, 61, 95, 0.18) !important;
+}
+
+/* why-items en dark: texto claro */
+.page-prevencion .pillar-section--dark .why-item p,
+.page-operacion .pillar-section--dark .why-item p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}

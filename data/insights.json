@@ -1,0 +1,89 @@
+{
+  "categories": [
+    "Supervisión empresarial",
+    "Prevención fiscal y laboral",
+    "Operación integrada"
+  ],
+  "articles": [
+    {
+      "slug": "5-senales-perdiendo-control-operativo",
+      "title": "5 señales de que tu empresa está perdiendo control operativo",
+      "category": "Supervisión empresarial",
+      "excerpt": "Cuando las áreas funcionan sin supervisión transversal, la dirección pierde visibilidad. Estas señales indican que tu empresa necesita una capa de control.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "varios-proveedores-riesgos-administrativos",
+      "title": "Por qué tener varios proveedores puede aumentar tus riesgos administrativos",
+      "category": "Operación integrada",
+      "excerpt": "Contratar especialistas por área no garantiza control. Sin coordinación central, los riesgos administrativos pueden multiplicarse en lugar de reducirse.",
+      "status": "published",
+      "readingMinutes": 6
+    },
+    {
+      "slug": "errores-invisibles-nomina",
+      "title": "Errores invisibles en nómina que pueden afectar a empresas en crecimiento",
+      "category": "Prevención fiscal y laboral",
+      "excerpt": "La nómina conecta laboral, fiscal e IMSS. Errores que parecen menores pueden acumular exposición significativa en empresas que crecen rápido.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "revisar-antes-problema-laboral",
+      "title": "Qué revisar antes de que un problema laboral se convierta en contingencia",
+      "category": "Prevención fiscal y laboral",
+      "excerpt": "Un checklist preventivo para evaluar contratos, nómina, prestaciones e IMSS antes de que un conflicto laboral genere costos mayores.",
+      "status": "published",
+      "readingMinutes": 6
+    },
+    {
+      "slug": "empresa-necesita-supervision",
+      "title": "Cómo saber si tu empresa necesita supervisión empresarial",
+      "category": "Supervisión empresarial",
+      "excerpt": "Criterios claros para evaluar si tu empresa opera con suficiente visibilidad o necesita una capa de control transversal.",
+      "status": "published",
+      "readingMinutes": 4
+    },
+    {
+      "slug": "crecimiento-desordenado-empresas-medianas",
+      "title": "Crecimiento desordenado: el riesgo silencioso de las empresas medianas",
+      "category": "Supervisión empresarial",
+      "excerpt": "El crecimiento acelerado sin estructura de control genera riesgos invisibles que la dirección suele descubrir tarde.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "servicios-administrativos-vs-control-empresarial",
+      "title": "Diferencia entre contratar servicios administrativos y tener control empresarial",
+      "category": "Operación integrada",
+      "excerpt": "Contratar tareas no es lo mismo que integrar control. La diferencia está en la visión transversal de la operación.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "conectar-contabilidad-nomina-administracion",
+      "title": "La importancia de conectar contabilidad, nómina y administración",
+      "category": "Operación integrada",
+      "excerpt": "Cuando estas tres áreas operan desconectadas, los errores se multiplican y la dirección pierde visibilidad.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "riesgos-fiscales-procesos-desordenados",
+      "title": "Riesgos fiscales que nacen de procesos internos mal coordinados",
+      "category": "Prevención fiscal y laboral",
+      "excerpt": "Muchos riesgos fiscales no nacen en la declaración: nacen en procesos internos sin seguimiento ni coordinación.",
+      "status": "published",
+      "readingMinutes": 5
+    },
+    {
+      "slug": "dueno-unico-punto-control",
+      "title": "Por qué el dueño no debería ser el único punto de control de la empresa",
+      "category": "Supervisión empresarial",
+      "excerpt": "Cuando toda la operación depende del dueño para resolver desconexiones, la empresa tiene un cuello de botella estructural.",
+      "status": "published",
+      "readingMinutes": 5
+    }
+  ]
+}

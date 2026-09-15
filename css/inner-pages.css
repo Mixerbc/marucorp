@@ -1,0 +1,690 @@
+/* MARU CORP — Páginas internas alineadas al diseño del inicio */
+
+.page-inner {
+  --home-gold-rgb: 232, 185, 35;
+  --home-navy-rgb: 12, 31, 74;
+  --home-navy-light-rgb: 26, 58, 124;
+}
+
+.page-inner .inner-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.page-inner .inner-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+}
+.page-inner .inner-blob--1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(var(--home-gold-rgb), 0.7), transparent 70%);
+  top: 6%;
+  left: -5%;
+  animation: innerBlob1 24s ease-in-out infinite;
+}
+.page-inner .inner-blob--2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(var(--home-navy-light-rgb), 0.45), transparent 70%);
+  top: 42%;
+  right: -8%;
+  animation: innerBlob2 28s ease-in-out infinite;
+}
+.page-inner .inner-blob--3 {
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(var(--home-gold-rgb), 0.4), transparent 70%);
+  bottom: 12%;
+  left: 20%;
+  animation: innerBlob3 22s ease-in-out infinite;
+}
+@keyframes innerBlob1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 20px); }
+}
+@keyframes innerBlob2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-25px, 15px); }
+}
+@keyframes innerBlob3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -25px); }
+}
+
+.page-inner main,
+.page-inner .site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.page-inner .container {
+  max-width: 1280px;
+}
+
+/* ── Badge estilo inicio ── */
+.page-inner .page-badge,
+.page-inner .page-block-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--gray-100);
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.75rem;
+}
+.page-inner .page-badge::before,
+.page-inner .page-block-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.25);
+  flex-shrink: 0;
+}
+.page-inner .page-block-label {
+  margin-bottom: 0.5rem;
+}
+.page-inner .page-block-label::before {
+  width: 7px;
+  height: 7px;
+}
+
+/* ── Hero servicios: fondo claro como el index ── */
+.page-inner .service-banner {
+  background: linear-gradient(
+    135deg,
+    var(--white) 0%,
+    var(--blue-soft) 38%,
+    rgba(245, 215, 110, 0.1) 62%,
+    var(--white) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+.page-inner .service-banner-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.page-inner .service-banner-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(12, 31, 74, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 31, 74, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.6;
+}
+.page-inner .service-banner-bg .page-hero-orb--1 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(var(--home-gold-rgb), 0.35), transparent 70%);
+  opacity: 0.5;
+  top: -60px;
+  right: 8%;
+  filter: blur(50px);
+  animation: innerBlob1 20s ease-in-out infinite;
+}
+.page-inner .service-banner-bg .page-hero-orb--2 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(var(--home-navy-light-rgb), 0.2), transparent 70%);
+  opacity: 0.45;
+  bottom: 0;
+  left: -4%;
+  filter: blur(50px);
+  animation: innerBlob2 24s ease-in-out infinite;
+}
+.page-inner .service-hero-titles h1 {
+  color: var(--navy);
+}
+.page-inner .page-hero--service .lead {
+  color: var(--text-light);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+/* El hero rich oscuro se define abajo (alineado al banner del inicio) */
+.page-inner .service-hero-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(145deg, rgba(232, 185, 35, 0.14), rgba(12, 31, 74, 0.04));
+  border: 1px solid rgba(232, 185, 35, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(12, 31, 74, 0.08);
+}
+.page-inner .service-hero-icon img {
+  width: 44px;
+  height: 44px;
+}
+.page-inner .page-hero--rich .page-badge {
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.page-inner .page-hero--rich .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.page-inner .page-hero--rich .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.page-inner .service-hero-metrics {
+  border-top-color: var(--gray-100);
+  gap: 0.75rem;
+}
+.page-inner .service-metric {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.page-inner .service-metric:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 185, 35, 0.35);
+}
+.page-inner .service-metric strong {
+  color: var(--gold-dark);
+  font-size: 1.2rem;
+}
+.page-inner .service-metric span {
+  color: var(--text-light);
+}
+
+/* Tabs estilo pills del hero */
+.page-inner .service-banner .service-tab {
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+}
+.page-inner .service-banner .service-tab:hover {
+  border-color: rgba(232, 185, 35, 0.5);
+  background: var(--white);
+}
+.page-inner .service-banner .service-tab.is-active {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.page-inner .page-hero--rich .page-hero-bg::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.page-inner .page-hero-orb--1 {
+  background: radial-gradient(circle, rgba(226, 174, 57, 0.45), transparent 70%) !important;
+  opacity: 0.4 !important;
+}
+.page-inner .page-hero-orb--2 {
+  background: radial-gradient(circle, rgba(131, 161, 212, 0.4), transparent 70%) !important;
+  opacity: 0.35 !important;
+}
+
+.page-inner .page-hero--rich .hero-mini-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  padding: 1rem 1.15rem;
+  backdrop-filter: blur(8px);
+}
+.page-inner .page-hero--rich .hero-mini-card strong {
+  color: var(--gold-light);
+  font-size: 1.35rem;
+}
+.page-inner .page-hero--rich .hero-mini-card span {
+  color: rgba(255, 255, 255, 0.78);
+}
+.page-inner .hero-mini-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 1.15rem;
+}
+.page-inner .hero-mini-card strong {
+  color: var(--gold-dark);
+  font-size: 1.35rem;
+}
+.page-inner .hero-mini-card span {
+  color: var(--text-light);
+}
+
+.page-inner .page-intro {
+  background: transparent;
+  padding: 0.5rem 0 1.25rem;
+}
+.page-inner .page-intro-inner {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.page-inner .page-intro-inner p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  margin: 0 0 0.85rem;
+}
+.page-inner .page-intro-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.page-inner .page-intro-trust span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--blue-soft);
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  border: 1px solid rgba(12, 31, 74, 0.06);
+}
+
+.page-inner .page-jump-inner {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Contenido servicios ── */
+.page-inner .service-shell {
+  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+}
+.page-inner .page-block-head h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+.page-inner .catalog-item {
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+}
+.page-inner .catalog-item:hover {
+  border-color: rgba(232, 185, 35, 0.45);
+  box-shadow: 0 12px 32px rgba(12, 31, 74, 0.1);
+}
+.page-inner .catalog-num {
+  background: linear-gradient(145deg, rgba(232, 185, 35, 0.2), rgba(12, 31, 74, 0.06));
+  color: var(--navy);
+  border: 1px solid rgba(232, 185, 35, 0.3);
+  width: 42px;
+  height: 42px;
+  font-size: 0.85rem;
+}
+
+.page-inner .process-step {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.page-inner .process-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 185, 35, 0.35);
+}
+.page-inner .process-step .num {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--gold-light);
+}
+
+.page-inner .service-visual-frame {
+  border-radius: calc(var(--radius-lg) + 4px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(12, 31, 74, 0.12);
+  border: 1px solid var(--gray-100);
+}
+.page-inner .service-visual-caption {
+  background: linear-gradient(180deg, transparent, rgba(12, 31, 74, 0.85));
+}
+
+.page-inner .service-related {
+  background: var(--blue-soft);
+  border-top: none;
+}
+.page-inner .related-pills a {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.page-inner .related-pills a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 185, 35, 0.45);
+}
+.page-inner .related-pills a.active {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+/* ── Contacto estilo cotización del index ── */
+.page-inner .contact-page-block {
+  padding: var(--section-y) 0;
+  background: linear-gradient(180deg, var(--blue-soft) 0%, var(--white) 50%, var(--gray-50) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.page-inner .contact-page-block::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--home-gold-rgb), 0.12), transparent 70%);
+  pointer-events: none;
+}
+.page-inner .contact-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.75rem;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .page-inner .contact-layout {
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 2.25rem;
+  }
+}
+.page-inner .contact-sidebar {
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.page-inner .contact-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.page-inner .contact-info-card {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--gold);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.page-inner .contact-info-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+.page-inner .contact-form-wrap .contact-form,
+.page-inner .contact-form {
+  padding: 1.5rem 1.65rem;
+  border-radius: calc(var(--radius-lg) + 2px);
+  box-shadow: 0 16px 40px rgba(12, 31, 74, 0.1);
+  border: 1px solid var(--gray-100);
+  position: relative;
+  overflow: hidden;
+}
+.page-inner .contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
+}
+.page-inner .contact-map-wrap {
+  background: var(--white);
+}
+
+/* CTA final */
+.page-inner .cta-section {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.page-inner .cta-section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--home-gold-rgb), 0.15), transparent 70%);
+  top: -80px;
+  right: -40px;
+  pointer-events: none;
+}
+
+/* ── Nosotros (somos) ── */
+.page-inner.page-about .page-main {
+  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+}
+/* Imagen nosotros → sin marco (ver about-page.css) */
+.page-inner.page-about .about-visual-frame {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+.page-inner.page-about .about-visual-caption {
+  background: none;
+  border: none;
+  color: var(--navy);
+  padding: 0;
+}
+.page-inner .about-stat {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.page-inner .about-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(232, 185, 35, 0.35);
+}
+.page-inner .about-stat strong {
+  color: var(--gold-dark);
+}
+.page-inner .about-highlights li {
+  background: var(--blue-soft);
+  border: 1px solid rgba(12, 31, 74, 0.06);
+  border-radius: 50px;
+  padding: 0.4rem 0.85rem;
+}
+.page-inner .benefit-tile {
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.15rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.page-inner .benefit-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(12, 31, 74, 0.1);
+  border-color: rgba(232, 185, 35, 0.4);
+}
+.page-inner .benefit-tile .benefit-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(232, 185, 35, 0.2), rgba(12, 31, 74, 0.06));
+  border: 1px solid rgba(232, 185, 35, 0.25);
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-inner .mission-card {
+  border-radius: calc(var(--radius-lg) + 2px);
+  box-shadow: var(--shadow-md);
+}
+.page-inner .mission-card--vision {
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+}
+.page-inner .approach-step {
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+}
+.page-inner .approach-step:hover {
+  border-color: rgba(232, 185, 35, 0.35);
+  box-shadow: 0 12px 32px rgba(12, 31, 74, 0.1);
+}
+.page-inner .approach-step-num {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--gold-light);
+  border-radius: 12px;
+  font-weight: 800;
+}
+.page-inner .page-block--alt {
+  background: linear-gradient(180deg, var(--blue-soft) 0%, var(--white) 100%);
+}
+
+/* ═══════════════════════════════════════════
+   Hero oscuro — misma claridad que el banner del inicio
+   ═══════════════════════════════════════════ */
+.page-inner .page-hero.page-hero--rich {
+  background:
+    radial-gradient(ellipse 55% 50% at 85% 15%, rgba(226, 174, 57, 0.18), transparent 55%),
+    radial-gradient(ellipse 45% 45% at 10% 80%, rgba(131, 161, 212, 0.16), transparent 55%),
+    linear-gradient(145deg, #252b42 0%, var(--color-primary) 48%, #2f3858 100%);
+  padding: calc(var(--header-h) + 2.1rem) 0 2.75rem;
+}
+
+.page-inner .page-hero.page-hero--rich h1 {
+  color: #fff !important;
+  font-size: clamp(1.7rem, 4vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  max-width: min(22ch, 100%);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+}
+
+.page-inner .page-hero.page-hero--rich .lead {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: clamp(1rem, 1.7vw, 1.1rem);
+  line-height: 1.65;
+  max-width: min(42rem, 100%);
+  margin-bottom: 1.35rem;
+}
+
+.page-inner .page-hero.page-hero--rich .breadcrumb {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.84rem;
+}
+
+.page-inner .page-hero.page-hero--rich .breadcrumb a {
+  color: var(--gold-light);
+}
+
+.page-inner .page-hero.page-hero--rich .breadcrumb a:hover {
+  color: #fff;
+}
+
+.page-inner .page-hero.page-hero--rich .breadcrumb span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.page-inner .page-hero.page-hero--rich .page-hero-actions {
+  gap: 0.85rem;
+}
+
+.page-inner .page-hero.page-hero--rich .btn-gold {
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(226, 174, 57, 0.35);
+}
+
+.page-inner .page-hero.page-hero--rich .btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.page-inner .page-hero.page-hero--rich .page-hero-content {
+  max-width: 38rem;
+}
+
+@media (min-width: 992px) {
+  .page-inner .page-hero.page-hero--rich .page-hero-content {
+    max-width: none;
+  }
+
+  .page-inner .page-hero.page-hero--rich h1 {
+    max-width: min(20ch, 100%);
+  }
+}
+
+/* Tipografía de secciones: más legible en páginas internas */
+.page-inner .section-header p,
+.page-inner .pillar-head p,
+.page-inner .pillar-intro-inner,
+.page-inner .page-block-lead,
+.page-inner .page-intro-inner > p {
+  color: color-mix(in srgb, var(--text-light) 70%, var(--navy));
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+}
+
+.page-inner .section-header h2,
+.page-inner .pillar-head h2,
+.page-inner .page-block h2 {
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.page-inner .pillar-section--dark .pillar-head h2,
+.page-inner .section--navy .section-header h2,
+.page-inner .section--dark .section-header h2 {
+  color: #fff;
+}
+
+.page-inner .pillar-section--dark .pillar-head p,
+.page-inner .section--navy .section-header p,
+.page-inner .section--dark .section-header p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-inner .inner-blob,
+  .page-inner .service-banner-bg .page-hero-orb {
+    animation: none !important;
+  }
+}

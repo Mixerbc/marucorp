@@ -1,0 +1,10 @@
+# MARU CORP — Apache
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # /admin → /admin/
+  RewriteRule ^admin$ admin/ [R=301,L]
+</IfModule>

@@ -1,0 +1,122 @@
+/* MARU CORP — Cursor personalizado (branding navy + gold) */
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+.maru-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+html.cursor-hidden .maru-cursor,
+html.preloader-active .maru-cursor {
+  opacity: 0;
+}
+
+.maru-cursor--glow {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226, 174, 57, 0.28) 0%, rgba(131, 161, 212, 0.1) 45%, transparent 70%);
+  z-index: 99997;
+}
+
+.maru-cursor--ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 0 1px rgba(52, 61, 95, 0.12);
+  z-index: 99998;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              margin 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.maru-cursor--dot {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 0 10px rgba(232, 185, 35, 0.65);
+  z-index: 99999;
+  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover sobre elementos interactivos */
+html.cursor-hover .maru-cursor--ring {
+  width: 54px;
+  height: 54px;
+  margin: -27px 0 0 -27px;
+  border-color: var(--navy-light);
+  background: rgba(232, 185, 35, 0.14);
+  box-shadow: 0 0 0 6px rgba(232, 185, 35, 0.12),
+              0 0 20px rgba(232, 185, 35, 0.25);
+}
+
+html.cursor-hover .maru-cursor--dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  box-shadow: 0 0 12px rgba(26, 58, 124, 0.45);
+}
+
+html.cursor-hover .maru-cursor--glow {
+  background: radial-gradient(circle, rgba(26, 58, 124, 0.2) 0%, rgba(232, 185, 35, 0.15) 50%, transparent 72%);
+}
+
+/* Click */
+html.cursor-click .maru-cursor--ring {
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-color: var(--gold-dark);
+  background: rgba(232, 185, 35, 0.25);
+}
+
+html.cursor-click .maru-cursor--dot {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  background: var(--gold);
+}
+
+.maru-cursor--ring {
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+  .maru-cursor {
+    display: none !important;
+  }
+}
+
+@media (pointer: coarse), (max-width: 991px) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+  .maru-cursor {
+    display: none !important;
+  }
+}

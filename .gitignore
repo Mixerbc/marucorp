@@ -1,0 +1,17 @@
+# Local / secrets
+admin/config.local.php
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.log
+
+# Uploads (keep folder structure)
+uploads/blogs/*
+!uploads/blogs/.htaccess
+!uploads/blogs/.gitkeep
