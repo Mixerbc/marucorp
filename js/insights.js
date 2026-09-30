@@ -26,7 +26,7 @@
   }
 
   function articleUrl(article) {
-    return 'insight.php?slug=' + encodeURIComponent(article.slug);
+    return 'insight.html?slug=' + encodeURIComponent(article.slug);
   }
 
   function render() {
@@ -70,13 +70,9 @@
   }
 
   function loadArticles() {
-    return fetch('data/blogs.json?_=' + Date.now())
-      .then(function (res) {
-        if (!res.ok) throw new Error('No se pudo cargar blogs');
-        return res.json();
-      })
-      .then(function (data) {
-        articles = Array.isArray(data.articles) ? data.articles : [];
+    return window.MaruBlogs.list()
+      .then(function (list) {
+        articles = list;
         render();
       })
       .catch(function () {

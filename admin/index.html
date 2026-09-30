@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin — MARU CORP</title>
+  <link rel="stylesheet" href="../css/admin.css?v=4">
+</head>
+<body class="admin-login" data-page="list">
+  <div class="admin-login-card" id="setupView" hidden>
+    <p class="admin-kicker">MARU CORP</p>
+    <h1>Falta configurar Supabase</h1>
+    <p class="admin-sub">Agrega la URL y la clave pública del proyecto en <code>js/supabase-config.js</code> y ejecuta <code>supabase/schema.sql</code> en el SQL Editor de Supabase.</p>
+  </div>
+
+  <form class="admin-login-card" id="loginView" hidden>
+    <p class="admin-kicker">MARU CORP</p>
+    <h1>Panel de Insights</h1>
+    <p class="admin-sub">Administra blogs, imágenes y contenido.</p>
+    <p class="admin-alert" id="loginError" hidden></p>
+    <label for="email">Correo</label>
+    <input type="email" id="email" name="email" autocomplete="username" required>
+    <label for="password" style="margin-top:0.85rem">Contraseña</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+    <button type="submit" class="admin-btn admin-btn--primary">Entrar</button>
+  </form>
+
+  <div id="appView" class="admin-shell" hidden>
+    <header class="admin-top">
+      <div>
+        <p class="admin-kicker">MARU CORP · Admin</p>
+        <h1>Insights / Blogs</h1>
+      </div>
+      <div class="admin-top-actions">
+        <a class="admin-btn" href="../insights-empresariales.html" target="_blank" rel="noopener">Ver sitio ↗</a>
+        <a class="admin-btn admin-btn--primary" href="editar.html">+ Nuevo blog</a>
+        <button type="button" class="admin-btn admin-btn--ghost js-logout">Salir</button>
+      </div>
+    </header>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><strong id="statTotal">0</strong><span>Artículos</span></div>
+      <div class="admin-stat admin-stat--published"><strong id="statPublished">0</strong><span>Publicados</span></div>
+      <div class="admin-stat admin-stat--draft"><strong id="statDraft">0</strong><span>Borradores</span></div>
+    </div>
+
+    <p class="admin-flash" id="flash" hidden></p>
+    <p class="admin-flash admin-flash--error" id="listError" hidden></p>
+
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <div>
+          <h2>Artículos</h2>
+          <p class="admin-panel-sub" id="listHelp" hidden>El orden de la lista es el mismo que se muestra en el sitio. Arrastra desde <span class="admin-grip-inline" aria-hidden="true">⠿</span> o usa las flechas.</p>
+        </div>
+      </div>
+
+      <div class="admin-empty" id="emptyState" hidden>
+        <p>Aún no hay blogs. Crea el primero o importa los artículos iniciales del sitio.</p>
+        <button type="button" class="admin-btn" id="importBtn">Importar blogs iniciales</button>
+      </div>
+
+      <div id="listWrap" hidden>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="blogTable">
+            <thead>
+              <tr>
+                <th class="col-order">Orden</th>
+                <th>Artículo</th>
+                <th class="col-category">Categoría</th>
+                <th class="col-status">Estado · Actualizado</th>
+                <th class="col-actions"><span class="visually-hidden">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../js/supabase-config.js?v=2"></script>
+  <script src="../js/blog-data.js?v=1"></script>
+  <script src="../js/admin.js?v=4"></script>
+</body>
+</html>

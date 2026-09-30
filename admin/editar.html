@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Blog — Admin MARU CORP</title>
+  <link rel="stylesheet" href="../css/admin.css?v=4">
+</head>
+<body class="admin-app" data-page="edit">
+  <div class="admin-shell">
+  <header class="admin-top">
+    <div>
+      <p class="admin-kicker">MARU CORP · Admin</p>
+      <h1 id="pageTitle">Nuevo blog</h1>
+    </div>
+    <div class="admin-top-actions">
+      <a class="admin-btn" href="./">← Volver</a>
+    </div>
+  </header>
+
+  <div class="admin-flash admin-flash--error" id="formErrors" hidden></div>
+
+  <form class="admin-form" id="blogForm" hidden novalidate>
+    <section class="admin-card">
+      <h2>Datos principales</h2>
+      <div class="admin-grid-2">
+        <div class="admin-field">
+          <label for="title">Título *</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div class="admin-field">
+          <label for="slug">Slug (URL)</label>
+          <input type="text" id="slug" name="slug" placeholder="se-genera-del-titulo">
+        </div>
+      </div>
+      <div class="admin-grid-2">
+        <div class="admin-field">
+          <label for="category">Categoría *</label>
+          <input list="categoryList" id="category" name="category" required>
+          <datalist id="categoryList"></datalist>
+        </div>
+        <div class="admin-field">
+          <label for="readingMinutes">Minutos de lectura</label>
+          <input type="number" id="readingMinutes" name="readingMinutes" min="1" max="60" value="5">
+        </div>
+      </div>
+      <div class="admin-grid-2">
+        <div class="admin-field">
+          <label for="status">Estado</label>
+          <select id="status" name="status">
+            <option value="draft">Borrador</option>
+            <option value="published">Publicado</option>
+          </select>
+        </div>
+      </div>
+      <div class="admin-field">
+        <label for="excerpt">Extracto (listado) *</label>
+        <textarea id="excerpt" name="excerpt" rows="3"></textarea>
+      </div>
+      <div class="admin-field">
+        <label for="lead">Entrada / lead del artículo</label>
+        <textarea id="lead" name="lead" rows="3"></textarea>
+      </div>
+    </section>
+
+    <section class="admin-card">
+      <h2>Imagen de portada</h2>
+      <div class="admin-cover">
+        <div class="admin-cover-preview is-empty" id="coverPreview">
+          <span id="coverPreviewText">Sin imagen</span>
+          <img src="" alt="" id="coverPreviewImg" hidden>
+        </div>
+        <div class="admin-field">
+          <label for="cover">Subir imagen (JPG, PNG, WEBP, GIF · máx. 3 MB)</label>
+          <input type="file" id="cover" name="cover" accept="image/jpeg,image/png,image/webp,image/gif">
+          <label class="admin-check" id="removeImageWrap" hidden>
+            <input type="checkbox" id="removeImage"> Quitar imagen actual
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-card">
+      <div class="admin-card-head">
+        <h2>Contenido del blog</h2>
+        <button type="button" class="admin-btn" id="addSection">+ Sección</button>
+      </div>
+      <p class="admin-help">Agrega bloques de título + párrafo. Puedes crear varias secciones.</p>
+      <div id="sections" class="admin-sections"></div>
+    </section>
+
+    <div class="admin-form-actions">
+      <button type="submit" class="admin-btn admin-btn--primary" id="saveBtn">Crear blog</button>
+      <a class="admin-btn" href="./">Cancelar</a>
+    </div>
+  </form>
+  </div>
+
+  <template id="sectionTemplate">
+    <div class="admin-section">
+      <div class="admin-section-head">
+        <strong class="js-section-label">Sección</strong>
+        <button type="button" class="admin-btn admin-btn--small admin-btn--danger js-remove-section">Quitar</button>
+      </div>
+      <div class="admin-field">
+        <label>Subtítulo / H2</label>
+        <input type="text" class="js-section-heading">
+      </div>
+      <div class="admin-field">
+        <label>Texto</label>
+        <textarea rows="5" class="js-section-content"></textarea>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../js/supabase-config.js?v=2"></script>
+  <script src="../js/blog-data.js?v=1"></script>
+  <script src="../js/admin.js?v=4"></script>
+</body>
+</html>

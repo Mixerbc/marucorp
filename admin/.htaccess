@@ -1,9 +1,2 @@
-DirectoryIndex index.php
+DirectoryIndex index.html
 Options -Indexes
-
-# Fuerza que /admin y /admin/ abran el panel
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /admin/
-  RewriteRule ^$ index.php [L]
-</IfModule>

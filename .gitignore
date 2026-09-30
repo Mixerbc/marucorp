@@ -1,5 +1,4 @@
 # Local / secrets
-admin/config.local.php
 .env
 .env.*
 
@@ -11,11 +10,10 @@ Desktop.ini
 .idea/
 *.log
 
-# Uploads (keep folder structure)
-uploads/blogs/*
-!uploads/blogs/.htaccess
-!uploads/blogs/.gitkeep
-
 __pycache__/
 *.pyc
+
+
+# Originales sin optimizar (usar img/maru/)
+marucorpimg/
 

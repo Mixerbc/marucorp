@@ -1,5 +1,5 @@
 # MARU CORP — Apache
-DirectoryIndex index.html index.php
+DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -7,4 +7,7 @@ DirectoryIndex index.html index.php
 
   # /admin → /admin/
   RewriteRule ^admin$ admin/ [R=301,L]
+
+  # Enlaces antiguos insight.php?slug=… → insight.html?slug=…
+  RewriteRule ^insight\.php$ insight.html [R=301,L]
 </IfModule>
