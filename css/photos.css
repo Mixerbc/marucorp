@@ -99,6 +99,11 @@
   max-width: none;
 }
 
+/* Variante: overlay más ligero */
+.photo-feature--light::after {
+  background: linear-gradient(0deg, rgba(30, 36, 64, 0.62) 0%, rgba(30, 36, 64, 0.18) 28%, transparent 48%);
+}
+
 /* Variante: sin texto encima */
 .photo-feature--plain::after {
   background: linear-gradient(0deg, rgba(30, 36, 64, 0.35), transparent 45%);
@@ -162,6 +167,10 @@
 
   .photo-feature::after {
     background: linear-gradient(0deg, rgba(30, 36, 64, 0.88) 0%, rgba(30, 36, 64, 0.45) 45%, transparent 75%);
+  }
+
+  .photo-feature--light::after {
+    background: linear-gradient(0deg, rgba(30, 36, 64, 0.7) 0%, rgba(30, 36, 64, 0.25) 40%, transparent 65%);
   }
 
   .photo-feature__caption strong {
