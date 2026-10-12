@@ -40,12 +40,21 @@
     };
   }
 
+  var TIMEOUT_MS = 4000;
+
   function rest(query) {
+    var controller = window.AbortController ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, TIMEOUT_MS) : null;
     return fetch(base + '/rest/v1/blogs?' + query, {
-      headers: { apikey: cfg.anonKey, Accept: 'application/json' }
+      headers: { apikey: cfg.anonKey, Accept: 'application/json' },
+      signal: controller ? controller.signal : undefined
     }).then(function (res) {
+      clearTimeout(timer);
       if (!res.ok) throw new Error('Supabase ' + res.status);
       return res.json();
+    }, function (err) {
+      clearTimeout(timer);
+      throw err;
     });
   }
 

@@ -1436,10 +1436,20 @@ ul { list-style: none; }
   color: var(--color-white);
   transition: background var(--transition), color var(--transition), transform var(--transition);
 }
-.footer-social a:hover {
-  background: var(--color-accent);
+.site-footer .footer-social a { padding: 0; opacity: 1; }
+.site-footer .footer-social a:hover,
+.site-footer .footer-social a:focus-visible {
+  background: var(--color-white);
   color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-accent);
   transform: translateY(-2px);
+}
+.site-footer .footer-social a:hover svg,
+.site-footer .footer-social a:focus-visible svg { color: var(--color-primary); }
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 /* Modal */
